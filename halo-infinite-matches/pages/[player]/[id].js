@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 export default function Overview(props) {
   const { asPath } = useRouter();
   const [matchResults, setMatchResults] = useState([]);
+  const [matchLoaded, setMatchLoaded] = useState(false);
   const gamertag = "shesjustaglitch";
 
   React.useEffect(() => {
@@ -29,6 +30,7 @@ export default function Overview(props) {
       })
         .then((response) => {
           setMatchResults(response.data.data);
+          setMatchLoaded(true);
           console.log(response.data.data);
         })
         .catch((err) => {
@@ -40,6 +42,19 @@ export default function Overview(props) {
 
   let results = [];
   results = matchResults;
+
+
+  function MatchResults(props) {
+    const resultsLoaded = props.loaded;
+    if (resultsLoaded) {
+      return (
+        <div><span>{results.teams.details[1].stats.core.summary.kills}</span> - <span>{results.teams.details[0].stats.core.summary.kills}</span></div>
+      );
+    }
+    return (
+      <div></div>
+    );
+  }
 
   return (
     <div className={styles.container}>
@@ -53,7 +68,7 @@ export default function Overview(props) {
         <h1 className={styles.title}>
           Match {props.id}
         </h1>
-        <span>{results.teams.details[1].stats.core.summary.kills}</span> - <span>{results.teams.details[0].stats.core.summary.kills}</span>
+        <MatchResults loaded={matchLoaded} />
 
       </main>
     </div>
