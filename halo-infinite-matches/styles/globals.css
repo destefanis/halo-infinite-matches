@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=IBM+Plex+Sans:wght@500;600;700&display=swap");
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.card-list {
+  padding: 16px 0 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  /* content-overflow: hidden; */
+  height: 260px;
+  /* width: 343px; */
+  background: #f9f9f9;
+  border-radius: 16px;
+  margin: 0 auto 16px;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.2));
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 640px) {
+  .card {
+    height: 332px;
+  }
+}
+
+.card-content {
+  position: relative;
+  padding: 16px 16px 18px;
+  z-index: 5;
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  height: calc(100% - 32px);
+}
+
+.card-info {
+  margin-top: auto;
+  align-self: flex-start;
+  justify-self: flex-end;
+}
+
+.card-details {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card-title {
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.card-meta-info {
+  display: flex;
+  flex-flow: row;
+}
+
+.card-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.card-map {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.card-date {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  align-content: center;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+.card-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+}
+
+.outcome {
+  text-transform: capitalize;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(141, 141, 141, 0.42) 0%,
+    rgba(16, 16, 16, 0.42) 100%
+  );
+  border-radius: 16px;
+}
